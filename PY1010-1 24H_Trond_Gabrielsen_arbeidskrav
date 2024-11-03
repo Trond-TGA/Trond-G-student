@@ -1,0 +1,44 @@
+# -*- coding: utf-8 -*-
+"""
+Spyder Trond Gabrielsen
+Arbeidskrav innleveringsfrist 08.11.2024
+"""
+
+
+import datetime
+"""Referansetid"""
+ETTAAR = 365
+
+""" Antall kilometer per år"""
+ANTALL_kjort_km = int(input("Hvor mange kilometer kjører du i året?: "))
+
+"""Årlige kostnader"""
+Elbil_FORSIKR = 5000
+Bensin_FORSIKR = 7500
+
+""" Variable kostnader"""
+Strom_pris_KW = 2.00
+LADING_lyn_stasjon_kilowatt_kroner = 5.99
+AvGIFT_bom_elbil = 0.1
+AvGIFT_bom_bensin = 0.3
+
+""" Drivstofforbruk er mer lik 0.21"""
+KILOWATTIMER_km = 0.20
+"""Opgaven sier her 1.0 men er 1.4"""
+KRONER_bensin_km = 1.0
+
+TRAFIKK_forsikr_dag = 8.38
+
+ELBIL_TOTAL_KOST = (ANTALL_kjort_km*KILOWATTIMER_km*Strom_pris_KW)+(TRAFIKK_forsikr_dag*ETTAAR)+(ANTALL_kjort_km*AvGIFT_bom_elbil)+Elbil_FORSIKR
+ELBIL_TOTAL_KOST_lyn = (ANTALL_kjort_km*KILOWATTIMER_km*LADING_lyn_stasjon_kilowatt_kroner)+(TRAFIKK_forsikr_dag*ETTAAR)+(ANTALL_kjort_km*AvGIFT_bom_elbil)+Elbil_FORSIKR
+BENSIN_TOTAL_KOST = (ANTALL_kjort_km*KRONER_bensin_km)+(TRAFIKK_forsikr_dag*ETTAAR)+(ANTALL_kjort_km*AvGIFT_bom_bensin)+Bensin_FORSIKR
+
+"""Ut på skjermen"""
+now = datetime.datetime.now()
+print("Current date and time:", now)
+print("Den totale årlige kostnaden på en elbil i kroner:"," %.2f" % ELBIL_TOTAL_KOST ,".-")
+print("Den totale årlige kostnaden på en elbil bare på lynlader:","%.2f" % ELBIL_TOTAL_KOST_lyn,".-")
+print("Den totale årlige kostnaden på en bensinbil kroner:","%.2f" % BENSIN_TOTAL_KOST,".-")
+
+
+
